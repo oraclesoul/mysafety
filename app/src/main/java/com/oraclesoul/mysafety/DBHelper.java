@@ -1,8 +1,11 @@
 package com.oraclesoul.mysafety;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -18,7 +21,37 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        String sql = "CREATE TABLE " + DB_TABLE_NAME + "(username TEXT PRIMARY KEY , contact INTEGER NOT NULL)";
+        Log.i("mytag", sql);
+        sqLiteDatabase.execSQL(sql);
+    }
 
+    public boolean isDetailsSet()
+    {
+        String sql = "SELECT * FROM " + DB_TABLE_NAME;
+        Cursor c = this.getWritableDatabase().rawQuery(sql,null);
+        if(c.getCount()>0) return true;
+        return false;
+    }
+
+    public  ContentValues getDetails()
+    {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        String sql = "SELECT * FROM " + DB_TABLE_NAME;
+        Cursor c = this.getWritableDatabase().rawQuery(sql,null);
+        
+
+    }
+
+    public boolean insertData(String name,int number)
+    {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("username",name);
+        contentValues.put("contact",number);
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        long res = sqLiteDatabase.insert(DB_TABLE_NAME,null,contentValues);
+        if(res == -1) return false;
+        return true;
     }
 
     @Override

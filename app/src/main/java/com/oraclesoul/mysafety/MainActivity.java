@@ -1,11 +1,16 @@
 package com.oraclesoul.mysafety;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 
 import com.google.android.material.tabs.TabLayout;
+import com.oraclesoul.mysafety.fragments.DetailsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,4 +45,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 }
