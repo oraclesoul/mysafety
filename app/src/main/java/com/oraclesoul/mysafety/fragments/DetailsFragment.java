@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.oraclesoul.mysafety.DBHelper;
+import com.oraclesoul.mysafety.Detail;
 import com.oraclesoul.mysafety.R;
 
 public class DetailsFragment extends Fragment {
@@ -32,14 +33,18 @@ public class DetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_details, container, false);
-        TextView tv = view.findViewById(R.id.displayusername);
+        TextView tv1 = view.findViewById(R.id.displayusername);
+        TextView tv2 = view.findViewById(R.id.displayphone);
          DBHelper dbHelper = new DBHelper(getContext());
          if(dbHelper.isDetailsSet())
          {
-             tv.setText("User name set");
+             Detail detail = dbHelper.getDetails();
+             tv1.setText(detail.getName());
+             tv2.setText(Integer.toString(detail.getPhone()));
+
          }else
          {
-             tv.setText("Username not set");
+             tv1.setText("Username not set");
          }
 
         return view;

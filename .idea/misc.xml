@@ -5,7 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18645833333333334" />
         <entry key="app/src/main/res/layout/fragment_alert.xml" value="0.1328125" />
-        <entry key="app/src/main/res/layout/fragment_details.xml" value="0.13072916666666667" />
+        <entry key="app/src/main/res/layout/fragment_details.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_edit_details.xml" value="0.1328125" />
       </map>
     </option>

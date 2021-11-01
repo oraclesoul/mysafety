@@ -24,6 +24,7 @@ public class DBHelper extends SQLiteOpenHelper {
         String sql = "CREATE TABLE " + DB_TABLE_NAME + "(username TEXT PRIMARY KEY , contact INTEGER NOT NULL)";
         Log.i("mytag", sql);
         sqLiteDatabase.execSQL(sql);
+
     }
 
     public boolean isDetailsSet()
@@ -34,12 +35,23 @@ public class DBHelper extends SQLiteOpenHelper {
         return false;
     }
 
-    public  ContentValues getDetails()
+    public  Detail getDetails()
     {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         String sql = "SELECT * FROM " + DB_TABLE_NAME;
         Cursor c = this.getWritableDatabase().rawQuery(sql,null);
-        
+
+        String name="NOthing";
+        int phone=0;
+        if(c.moveToFirst())
+        {
+            name = c.getString(0);
+            phone = Integer.parseInt(c.getString(1));
+        }
+
+        Detail detail = new Detail(name,phone);
+
+        return detail;
 
     }
 
@@ -50,6 +62,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("contact",number);
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         long res = sqLiteDatabase.insert(DB_TABLE_NAME,null,contentValues);
+
         if(res == -1) return false;
         return true;
     }
