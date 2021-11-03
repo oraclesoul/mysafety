@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         PageAdapter pageAdapter = new PageAdapter(this);
         viewPager2.setAdapter(pageAdapter);
 
+
         TabLayout tabLayout = findViewById(R.id.tablayout);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -43,8 +45,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
     }
+
+
 
 
 }
