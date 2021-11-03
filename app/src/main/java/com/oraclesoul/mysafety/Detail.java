@@ -2,9 +2,9 @@ package com.oraclesoul.mysafety;
 
 public class Detail {
      String name;
-     int phone;
+     String phone;
 
-    public Detail(String name, int phone) {
+    public Detail(String name, String phone) {
         this.name = name;
         this.phone = phone;
     }
@@ -17,11 +17,11 @@ public class Detail {
         this.name = name;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 }

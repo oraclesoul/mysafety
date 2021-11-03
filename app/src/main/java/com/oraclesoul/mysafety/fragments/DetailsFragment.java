@@ -40,7 +40,7 @@ public class DetailsFragment extends Fragment {
          {
              Detail detail = dbHelper.getDetails();
              tv1.setText(detail.getName());
-             tv2.setText(Integer.toString(detail.getPhone()));
+             tv2.setText(detail.getPhone());
 
          }else
          {

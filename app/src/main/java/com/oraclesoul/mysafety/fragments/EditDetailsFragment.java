@@ -45,7 +45,7 @@ public class EditDetailsFragment extends Fragment {
                 EditText phoneEt = view.findViewById(R.id.phone);
 
                 String username = usernameEt.getText().toString();
-                int phone = Integer.parseInt(phoneEt.getText().toString());
+                String phone = phoneEt.getText().toString();
 
                 DBHelper dbHelper = new DBHelper(getContext());
                 dbHelper.insertData(username,phone);

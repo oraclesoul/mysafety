@@ -23,6 +23,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.oraclesoul.mysafety.DBHelper;
+import com.oraclesoul.mysafety.Detail;
 import com.oraclesoul.mysafety.MainActivity;
 import com.oraclesoul.mysafety.R;
 
@@ -54,14 +56,9 @@ public class AlertFragment extends Fragment implements LocationListener {
 
 
                 if(ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
-//                    Toast.makeText(getContext() ,"Alert Sended", Toast.LENGTH_SHORT).show();
-
-                    SmsManager smsManager = SmsManager.getDefault();
-//                    smsManager.sendTextMessage("7056228038",null,"hello",null,null);
 
                     LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
                     locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,1, AlertFragment.this);
-                    
                 }else
                 {
                     Toast.makeText(getContext() ,"Permission Required", Toast.LENGTH_SHORT).show();
@@ -80,15 +77,26 @@ public class AlertFragment extends Fragment implements LocationListener {
 
         double lat = location.getLatitude();
         double lon = location.getLongitude();
-        String mymessage = "hey my location is " + lat + " " + lon ;
-//        String uri = "http://maps.google.com/maps?saddr=" +lat+","+lon;
+
         String uri = "https://www.google.com/maps/?q=" + lat + "," +lon ;
         Toast.makeText(getActivity(), uri, Toast.LENGTH_SHORT).show();
-        SmsManager smsManager = SmsManager.getDefault();
-        smsManager.sendTextMessage("7056228038",null,uri,null,null);
 
+        DBHelper dbHelper = new DBHelper(getActivity());
+        Detail detail = dbHelper.getDetails();
+
+
+        String name = detail.getName();
+        String phone = detail.getPhone();
+
+
+        String message = "Emergency , " + name + " is in some trouble , check their location here  ";
+
+        SmsManager smsManager = SmsManager.getDefault();
+        smsManager.sendTextMessage(phone,null,message + uri,null,null);
 
     }
+
+
 
     @Override
     public void onLocationChanged(@NonNull List<Location> locations) {

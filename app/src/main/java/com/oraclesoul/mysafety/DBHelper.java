@@ -21,7 +21,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sql = "CREATE TABLE " + DB_TABLE_NAME + "(username TEXT PRIMARY KEY , contact INTEGER NOT NULL)";
+        String sql = "CREATE TABLE " + DB_TABLE_NAME + "(username TEXT PRIMARY KEY , contact TEXT NOT NULL)";
         Log.i("mytag", sql);
         sqLiteDatabase.execSQL(sql);
 
@@ -42,11 +42,11 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor c = this.getWritableDatabase().rawQuery(sql,null);
 
         String name="NOthing";
-        int phone=0;
+        String phone="7056228038";
         if(c.moveToFirst())
         {
             name = c.getString(0);
-            phone = Integer.parseInt(c.getString(1));
+            phone = c.getString(1);
         }
 
         Detail detail = new Detail(name,phone);
@@ -55,7 +55,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean insertData(String name,int number)
+    public boolean insertData(String name,String number)
     {
         ContentValues contentValues = new ContentValues();
         contentValues.put("username",name);
