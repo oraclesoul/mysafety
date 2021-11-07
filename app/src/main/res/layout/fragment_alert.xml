@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
+    android:background="@color/primary"
+    android:backgroundTintMode="screen"
     tools:context=".fragments.AlertFragment">
 
     <LinearLayout
@@ -17,9 +19,11 @@
             android:id="@+id/alertbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="@color/alert"
+            android:padding="20dp"
             android:text="Send Alert"
-            android:textColor="#000000" />
+            android:textColor="@color/white"
+            android:textSize="60sp" />
     </LinearLayout>
 
 </FrameLayout>

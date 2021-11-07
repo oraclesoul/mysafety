@@ -55,16 +55,17 @@ public class AlertFragment extends Fragment implements LocationListener {
             public void onClick(View viewwithbtn) {
 
 
-                if(ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
-
-                    LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,1, AlertFragment.this);
-                }else
+                if(ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED)
                 {
+                    requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                            3);
                     Toast.makeText(getContext() ,"Permission Required", Toast.LENGTH_SHORT).show();
                 }
-
-
+                else
+                {
+                    LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,1, AlertFragment.this);
+                }
 
             }
         });
@@ -90,9 +91,16 @@ public class AlertFragment extends Fragment implements LocationListener {
 
 
         String message = "Emergency , " + name + " is in some trouble , check their location here  ";
+        if(ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.SEND_SMS)!= PackageManager.PERMISSION_GRANTED)
+        {
+            requestPermissions(new String[]{Manifest.permission.SEND_SMS},
+                    1);
+        }else
+        {
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(phone,null,message + uri,null,null);
+        }
 
-        SmsManager smsManager = SmsManager.getDefault();
-        smsManager.sendTextMessage(phone,null,message + uri,null,null);
 
     }
 
