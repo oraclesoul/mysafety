@@ -10,4 +10,14 @@
     <color name="primary" >#215C6C</color>
     <color name="alert">#f4442e</color>
     <color name="secondary">#074f99</color>
+
+    <color name="color1">#41BEDC</color>
+    <color name="color2">#FF865F</color>
+    <color name="color3">#7F8AE6</color>
+    <color name="color4">#FAC34F</color>
+    <color name="color5">#64C880</color>
+
+
+
+
 </resources>

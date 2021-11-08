@@ -20,10 +20,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/alert"
-            android:padding="20dp"
+            android:padding="10dp"
             android:text="Send Alert"
             android:textColor="@color/white"
-            android:textSize="60sp" />
+            android:textSize="50sp" />
     </LinearLayout>
 
 </FrameLayout>

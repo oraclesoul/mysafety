@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/layout/fragment_details.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_edit_details.xml" value="0.1328125" />
         <entry key="app/src/main/res/layout/fragment_info.xml" value="0.18645833333333334" />
+        <entry key="app/src/main/res/layout/listitem.xml" value="0.18645833333333334" />
       </map>
     </option>
   </component>

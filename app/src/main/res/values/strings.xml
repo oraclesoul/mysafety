@@ -2,4 +2,18 @@
     <string name="app_name">MySafety</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="tips">
+        <item>Make copies of your passport</item>
+        <item>Carry your phone charger</item>
+        <item>Keep original packaging for medications</item>
+        <item>Use a password when meeting a driver</item>
+        <item>Be sensitive to local customs</item>
+        <item>Research public transportation</item>
+        <item>Read the reviews for Uber drivers</item>
+        <item>Ask for a double-locking hotel room</item>
+        <item>Always watch your drink</item>
+        <item>Plan ahead</item>
+    </string-array>
+
 </resources>
