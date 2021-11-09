@@ -46,7 +46,8 @@
                 android:hint="Enter Your Name"
                 android:inputType="textPersonName"
                 android:padding="10dp"
-                android:textColor="@color/primary" />
+                android:textColor="@color/primary"
+                android:textColorHint="#76BAC1" />
 
             <EditText
                 android:id="@+id/phone"
@@ -58,7 +59,8 @@
                 android:hint="Enter Emergency Contact"
                 android:inputType="phone"
                 android:padding="10dp"
-                android:textColor="@color/primary" />
+                android:textColor="@color/primary"
+                android:textColorHint="#76BAC1" />
 
             <Button
                 android:id="@+id/saveData"
@@ -68,7 +70,7 @@
                 android:background="#FBC02D"
                 android:onClick="saveUserData"
                 android:padding="10dp"
-                android:text="saveData" />
+                android:text="save Data" />
         </LinearLayout>
     </LinearLayout>
 

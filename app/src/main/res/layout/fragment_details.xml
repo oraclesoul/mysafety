@@ -72,6 +72,15 @@
                 android:textSize="48sp" />
         </LinearLayout>
 
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color4"
+            android:padding="10dp"
+            android:text="reset data"
+            android:textColor="@color/white" />
+
     </LinearLayout>
 
 </FrameLayout>

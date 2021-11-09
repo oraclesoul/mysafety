@@ -6,6 +6,6 @@
     android:layout_margin="5dp"
     android:padding="5dp"
     android:textColor="@color/white"
-    android:textSize="35dp">
+    android:textSize="28dp">
 
 </TextView>
